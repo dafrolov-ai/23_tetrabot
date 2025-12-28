@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml:2:13-83
+INJECTED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml:2:13-83
+	package
+		INJECTED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml
+	xmlns:android
+		ADDED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml:2:23-81
+uses-sdk
+INJECTED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml reason: use-sdk injection requested
+INJECTED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml
+INJECTED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml
+	android:targetSdkVersion
+		INJECTED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml
+	android:minSdkVersion
+		INJECTED from /home/andrey/AndroidStudioProjects/vosk-android-demo_2_Kotlin/models/build/intermediates/tmp/ProcessLibraryManifest/debug/tempAndroidManifest4031252191146476601.xml
