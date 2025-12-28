@@ -1,0 +1,77 @@
+AUDIO_HTML = """
+<script>                                                      // создаем тег <script>, сообщающий браузеру о том, что внутри находится исполняемый код JavaScript
+var my_div = document.createElement("DIV");                   // создаем новый элемент DIV(тег-контейнер для логического выделения блока документа)
+var my_p = document.createElement("P");                       // создаем новый элемент P(параграф для логической группировки текста)
+var my_btn = document.createElement("BUTTON");                // создаем новый элемент(кнопку) BUTTON
+var t = document.createTextNode("Нажмите старт для записи");  // создаем текстовое содержимое для кнопки
+
+my_btn.appendChild(t);                                        // добавляем текстовое содержимое элементу BUTTON
+my_div.appendChild(my_btn);                                   // кнопку с текстом BUTTON добавляем в блок DIV
+document.body.appendChild(my_div);                            // добавляем наш блок в элемент <body>("тело", для хранения содержимого веб-страницы)
+
+var base64data = 0;                                           // будем использовать для аудиоданных метод кодирования информации в 64-разрядный код
+var reader;                                                   // создаем переменную для чтения файла
+var recorder, gumStream;                                      // объявляем переменные для записи данных/потока
+var recordButton = my_btn;                                    // создаем переменную для кнопки записи аудио с микрофона
+
+var handleSuccess = function(stream) {                        // объявляем функцию для работы с потоками данных
+  gumStream = stream;                                         // создаем переменную для потока
+  var options = {
+    mimeType : 'audio/webm;codecs=opus'                       // в опциях задаем медиа тип с аудиоформатом и кодеками
+  };            
+  recorder = new MediaRecorder(stream);                       // создаем новый объект MediaRecorder, получающий медиапоток для записи.
+                                                              // MediaRecorder - интерфейс MediaStream Recording API представляющий функциональность для простой записи медиа. Создается..
+                                                              // ..с использованием MediaRecorder() конструктора.
+  recorder.ondataavailable = function(e) {                    // вызываем обработчик dataavailable события, запускаемое по окончанию записи          
+    var url = URL.createObjectURL(e.data);                    // этим методом создаем DOMString(UTF-16 String), содержащий URL с указанием на объект e.data
+    var preview = document.createElement('audio');            // создаем элемент-тег аудио
+    preview.controls = true;                                  // активизируем элементы управления
+    preview.src = url;                                        // берем в кач-ве исходных данных файл, содержащийся в записанной ранее URL
+    document.body.appendChild(preview);                       // добавляем элемент аудио в <body>("тело", для хранения содержимого веб-страницы)
+
+    reader = new FileReader();                                // создаем объект класса FileReader для чтения разных источников данных
+    reader.readAsDataURL(e.data);                             // читаем содержимое указанного файла
+    reader.onloadend = function() {                           // обработчик события, запускаемого после передачи данных
+      base64data = reader.result;                             // записываем прочитанное содержимое в base64data
+    }
+  };
+  recorder.start();  // начало записи медиа
+  };
+
+// такой текст будет на кнопке BUTTON во время записи аудио
+recordButton.innerText = "Идёт запись... нажмите для остановки"; 
+
+// запрос разрешения пользователя на доступ к устройству захвата аудио(микрофон), указываем True
+navigator.mediaDevices.getUserMedia({audio: true}).then(handleSuccess);
+
+
+function toggleRecording() {                                  // функция опишет действия по завершению записи (после клика мышкой по кнопке "Recording... press to stop")
+  if (recorder && recorder.state == "recording") {            // если рекордер находится в процессе записи 
+      recorder.stop();  // рекордер прерывается
+      gumStream.getAudioTracks()[0].stop();                   // отключается запись и доступ к микрофону
+      recordButton.innerText = ""    // эта надпись(сохранение записи) отобразится на кнопке BUTTON 
+  }
+}
+
+// https://stackoverflow.com/a/951057
+function sleep(ms) {                                          // создаем функцию с задержкой вызова
+  return new Promise(resolve => setTimeout(resolve, ms));  
+
+  // new Promise - конструкция для отложенных вычислений
+  // setTimeout позволяет вызвать функцию один раз через определённый интервал времени
+}
+
+var data = new Promise(resolve=>{
+recordButton.onclick = ()=>{      // при нажатии левой кнопкой мыши на кнопку "Recording... press to stop"
+toggleRecording()                 // вызывается функция завершения аудиозаписи
+
+sleep(2000).then(() => {          // и после задержки 2000мс(2 сек)
+  resolve(base64data.toString())  // полученные данные из формата base64 преобразовываем в строку
+
+});
+
+}
+});
+      
+</script>
+"""
