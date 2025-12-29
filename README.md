@@ -1,83 +1,89 @@
-## 📁 Распознавание голосовых команд для управления роботом
+# Voice Command Recognition for Robot Control
 
-### 📌 Описание проекта
+## 📌 Project Description
 
-Проект посвящён разработке системы распознавания голосовых команд с использованием нейронных сетей и их преобразованию в двухбайтные коды управления роботом. Управление осуществляется через Android-приложение, принимающее речь пользователя и передающее команды в блок управления роботом.
-
----
-
-### 🎯 Цель проекта
-
-Создание программно-аппаратной цепочки «голос → команда → код → робот» с высокой точностью распознавания (более 95%) и возможностью расширения словаря команд.
+This project focuses on the development of a voice command recognition system based on neural networks and the conversion of recognized commands into two-byte control codes for a robot.
+Control is performed via an Android application that captures user speech, recognizes commands, and transmits them to the robot control unit.
 
 ---
 
-### 🧩 Задачи проекта
+## 🎯 Project Goal
 
-* Распознавание голосовых команд с использованием предобученных и экспериментальных STT-моделей
-* Формирование словаря команд и сопоставление с эталонами
-* Кодирование команд в заранее определённые двухбайтные значения
-* Разработка Android-приложений для передачи команд роботу
-* Тестирование передачи команд через Arduino / ESP-модули
+To build a software–hardware pipeline **“voice → command → code → robot”** with high recognition accuracy (above 95%) and support for extending the command vocabulary.
 
 ---
 
-### 📥 Входные данные
+## 🧩 Project Tasks
 
-* Голосовые команды пользователя (русский язык)
-* Аудиопоток с микрофона Android-устройства
-* Предобученные модели распознавания речи (Vosk, Google Speech Recognition)
-* Словарь допустимых команд и их кодов
-
----
-
-### 📤 Выходные данные
-
-* Распознанный текст команды
-* Нормализованная команда (с учётом расстояния Левенштейна)
-* Десятичный / двухбайтный код команды
-* Передача команды в блок управления роботом
+* Voice command recognition using pre-trained and experimental Speech-to-Text (STT) models
+* Command vocabulary creation and matching against reference commands
+* Encoding commands into predefined two-byte values
+* Development of Android applications for transmitting commands to the robot
+* Testing command transmission using Arduino / ESP modules
 
 ---
 
-🧠 **Используемые технологии**
+## 📥 Input Data
 
-* **Speech-to-Text:** Vosk (offline ASR на базе Kaldi), Google Speech Recognition, SpeechRecognition, эксперименты с DeepSpeech2
-* **NLP-обработка:** расстояние Левенштейна, Pymorphy2, словарная нормализация команд, разбор параметров команд
+* User voice commands (Russian language)
+* Audio stream from an Android device microphone
+* Pre-trained speech recognition models (Vosk, Google Speech Recognition)
+* Dictionary of supported commands and their corresponding codes
+
+---
+
+## 📤 Output Data
+
+* Recognized command text
+* Normalized command (using Levenshtein distance)
+* Decimal / two-byte command code
+* Command transmission to the robot control unit
+
+---
+
+## 🧠 Technologies Used
+
+* **Speech-to-Text:** Vosk (offline ASR based on Kaldi), Google Speech Recognition, SpeechRecognition, experiments with DeepSpeech2
+* **NLP processing:** Levenshtein distance, Pymorphy2, command dictionary normalization, command parameter parsing
 * **Android:** Kotlin, Java, Flutter, Kivy, App Inventor 2, Android Studio, KivyMD
-* **Backend / прототипы:** Python, Google Colab, Jupyter Notebook, TCP-сокеты, HTTP / POST-запросы
-* **Железо и связь:** Arduino, ESP-01, ESP8266, Wi-Fi, Serial / Hardware UART
+* **Backend / Prototyping:** Python, Google Colab, Jupyter Notebook, TCP sockets, HTTP / POST requests
+* **Hardware & Communication:** Arduino, ESP-01, ESP8266, Wi-Fi, Serial / Hardware UART
 
 ---
 
-### 📂 Структура репозитория
+## 📂 Repository Structure
 
-```
-001_Concept_and_analysis
-Документы по проекту: описание задачи, цели и требований, анализ подходов к распознаванию голосовых команд и вариантов реализации системы управления роботом.
+'''
 
-002_notebooks
-Jupyter / Google Colab ноутбуки с экспериментами по распознаванию речи, обработке команд, проверке точности моделей Vosk и тестированию логики сопоставления команд.
+### `001_Concept_and_analysis`
 
-003_android_vosk_demo_kotlin
-Демонстрационное Android-приложение на Kotlin с использованием Vosk для распознавания голосовых команд и преобразования их в заранее заданные коды управления.
-```
----
+Project documentation including task description, goals, requirements, and analysis of voice command recognition approaches and robot control system design options.
 
-### ✅ Результаты проекта
+### `002_notebooks`
 
-* Реализовано несколько вариантов Android-приложений
-* Точность распознавания команд превышает 95%
-* Поддерживается разбор сложных команд:
+Jupyter / Google Colab notebooks containing experiments with speech recognition, command processing, evaluation of Vosk model accuracy, and command matching logic.
 
-  * одиночные команды
-  * последовательности команд
-  * команды с параметрами
-* Система масштабируема под новые команды и устройства
+### `003_android_vosk_demo_kotlin`
+
+Demonstration Android application written in Kotlin using Vosk for voice command recognition and conversion into predefined robot control codes.
+'''
 
 ---
 
-### 🧪 Статус
+## ✅ Project Results
 
-Проект завершён, цель проекта достигнута. Решение готово к демонстрации и дальнейшей инженерной доработке.
+* Multiple Android application variants were implemented
+* Voice command recognition accuracy exceeds 95%
+* Support for complex command parsing, including:
 
+  * single commands
+  * command sequences
+  * commands with parameters
+* The system is scalable and can be extended with new commands and devices
+
+---
+
+## 🧪 Project Status
+
+The project is completed and its objectives have been achieved.
+The solution is ready for demonstration and further engineering development.
