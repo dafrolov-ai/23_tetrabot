@@ -41,7 +41,8 @@
 ---
 
 🧠 **Используемые технологии**
-Speech-to-Text: Vosk (offline ASR на базе Kaldi), Google Speech Recognition, эксперименты с DeepSpeech2, SpeechRecognition
+
+Speech-to-Text: Vosk (offline ASR на базе Kaldi), Google Speech Recognition, SpeechRecognition, эксперименты с DeepSpeech2
 NLP-обработка: расстояние Левенштейна, Pymorphy2, словарная нормализация команд, разбор параметров команд
 Android: Kotlin, Java, Flutter, Kivy, App Inventor 2, Android Studio, KivyMD
 Backend / прототипы: Python, Google Colab, Jupyter Notebook, TCP-сокеты, HTTP / POST-запросы
