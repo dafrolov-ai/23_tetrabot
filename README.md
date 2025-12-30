@@ -66,6 +66,7 @@ Jupyter / Google Colab notebooks containing experiments with speech recognition,
 ### `003_android_vosk_demo_kotlin`
 
 Demonstration Android application written in Kotlin using Vosk for voice command recognition and conversion into predefined robot control codes.
+
 '''
 
 ---
