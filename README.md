@@ -53,7 +53,7 @@ To build a software–hardware pipeline **“voice → command → code → robo
 
 ## 📂 Repository Structure
 
-'''
+
 
 ### `001_Concept_and_analysis`
 
@@ -67,7 +67,7 @@ Jupyter / Google Colab notebooks containing experiments with speech recognition,
 
 Demonstration Android application written in Kotlin using Vosk for voice command recognition and conversion into predefined robot control codes.
 
-'''
+
 
 ---
 
